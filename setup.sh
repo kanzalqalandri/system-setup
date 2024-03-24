@@ -94,6 +94,21 @@ else
 fi
 
 
+# ===============================
+#      Install Duo Connect
+# ===============================
+
+if ! command -v duoconnect > /dev/null; then
+    echo "Duo Connect not found. Installing..."
+    wget https://dl.duosecurity.com/DuoConnect-latest.tar.gz
+    tar xzvf DuoConnect-2.0.4.tar.gz
+    sudo ./install.sh
+    rm install.sh
+    rm duoconnect
+else
+    echo "Duo Connect is already installed."
+fi
+
 
 # ===============================
 #        Install VsCode
