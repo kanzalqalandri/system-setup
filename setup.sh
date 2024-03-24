@@ -101,7 +101,7 @@ fi
 if ! command -v duoconnect > /dev/null; then
     echo "Duo Connect not found. Installing..."
     wget https://dl.duosecurity.com/DuoConnect-latest.tar.gz
-    tar xzvf DuoConnect-2.0.4.tar.gz
+    tar xzvf DuoConnect-latest.tar.gz
     sudo ./install.sh
     rm DuoConnect-latest.tar.gz
     rm install.sh
@@ -183,3 +183,5 @@ download_and_install_font "FiraSans" "fira-sans" "https://www.1001fonts.com/down
 
 sudo apt update
 sudo apt upgrade -y
+
+
