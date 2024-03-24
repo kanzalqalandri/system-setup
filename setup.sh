@@ -103,6 +103,7 @@ if ! command -v duoconnect > /dev/null; then
     wget https://dl.duosecurity.com/DuoConnect-latest.tar.gz
     tar xzvf DuoConnect-2.0.4.tar.gz
     sudo ./install.sh
+    rm DuoConnect-latest.tar.gz
     rm install.sh
     rm duoconnect
 else
