@@ -8,28 +8,31 @@ sudo apt update
 #     Install APT Packages
 # ===============================
 
-# Git
+# git
 sudo apt install -y git
+
+# ssh
+sudo apt install -y ssh
 
 # wget
 sudo apt install -y wget
 
-# Unzip
+# unzip
 sudo apt install -y unzip
 
-# VLC
+# vlc
 sudo apt install -y vlc
 
-# Gnome Tweaks
+# gnome tweaks
 sudo apt install -y gnome-tweaks
 
-# Remmina
+# remmina
 sudo apt install -y remmina
 
-# Vim
+# vim
 sudo apt install -y vim
 
-# Extension Manager
+# extension manager
 sudo apt install -y gnome-shell-extension-manager
 
 
