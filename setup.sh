@@ -180,6 +180,33 @@ download_and_install_font "caskaydia" "CascadiaMono" "https://github.com/ryanoas
 download_and_install_font "FiraSans" "fira-sans" "https://www.1001fonts.com/download/fira-sans.zip"
 
 
+# --------- DM Sans ---------
+
+#!/bin/bash
+
+FONT_DIR="/home/kanzal/.fonts"
+TEMP_DIR="/tmp/fonts_temp"
+
+# Check if dm-sans*.ttf files exist in the FONT_DIR
+if find "$FONT_DIR" -type f -iname "dm-sans*.ttf" | grep -q '.'; then
+    echo "dm-sans font files already exist, exiting..."
+    exit 0
+else
+    echo "dm-sans font files not found, proceeding with download..."
+    # Download and unzip the font
+    wget https://r2.fontsource.org/fonts/dm-sans@latest/download.zip
+    mkdir -p "$TEMP_DIR"
+    unzip download.zip -d "$TEMP_DIR"
+    rm download.zip
+
+    # Move the required fonts to FONT_DIR
+    find "$TEMP_DIR/ttf" -type f -iname "*normal*.ttf" -exec mv {} "$FONT_DIR/" \;
+
+    # Clean up the temporary directory
+    rm -rf "$TEMP_DIR"
+fi
+
+
 # ===============================
 #        Install Kubectl
 # ===============================
