@@ -11,9 +11,6 @@ sudo apt update
 # git
 sudo apt install -y git
 
-# ssh
-sudo apt install -y ssh
-
 # wget
 sudo apt install -y wget
 
@@ -45,41 +42,48 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 
 
 # ===============================
+#           Chrome
+# ===============================
+
+if ! dpkg -l | grep -q "google-chrome-stable"; then
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp
+    sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+    sudo apt-get install -f
+    rm /tmp/google-chrome-stable_current_amd64.deb
+    echo "Google Chrome has been installed successfully."
+else
+    echo "Google Chrome is already installed."
+fi
+
+
+# ===============================
 #      Install Flatpackages
 # ===============================
 
 # Planify
 flatpak install -y flathub io.github.alainm23.planify
 
-# WhatsApp
-flatpak install -y flathub io.github.mimbrero.WhatsAppDesktop
 
-# Chrome
-flatpak install -y flathub com.google.Chrome
-# Install Safe Eyes
-flatpak install -y flathub io.github.slgobinath.SafeEyes
+# FireFox
+flatpak install -y  flathub org.mozilla.firefox
 
 # Gopeed
 flatpak install -y flathub com.gopeed.Gopeed
 
 # Discord
-flatpak install -y flathub com.discordapp.Discord
+flatpak install -y  flathub com.discordapp.Discord
 
 # Flatsweap
-flatpak install -y flathub io.github.giantpinkrobots.flatsweep
+flatpak install -y  flathub io.github.giantpinkrobots.flatsweep
 
 # Resources
-flatpak install -y flathub net.nokyan.Resources
+flatpak install  -y flathub net.nokyan.Resources
 
 # MissionCenter
-flatpak install -y flathub io.missioncenter.MissionCenter
+flatpak install  -y flathub io.missioncenter.MissionCenter
 
 # LocalSend
-flatpak install -y flathub org.localsend.localsend_app
-
-# Reminders
-flatpak install -y flathub io.github.dgsasha.Remembrance
-
+flatpak install -y  flathub org.localsend.localsend_app
 
 
 # ===============================
@@ -177,7 +181,7 @@ download_and_install_font() {
 }
 
 download_and_install_font "caskaydia" "CascadiaMono" "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/CascadiaMono.zip"
-download_and_install_font "FiraSans" "fira-sans" "https://www.1001fonts.com/download/fira-sans.zip"
+# download_and_install_font "FiraSans" "fira-sans" "https://www.1001fonts.com/download/fira-sans.zip"
 
 
 # --------- DM Sans ---------
